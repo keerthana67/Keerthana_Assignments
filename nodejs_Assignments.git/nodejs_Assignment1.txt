@@ -1,0 +1,107 @@
+1.
+var http = require('http')
+var server = http.createServer(function(req,res)
+{
+    res.writeHead(200,{'Content-Type':'text/plain'});
+    res.end('Success! I am listening from port:3000');
+})
+server.listen(3000,'127.0.0.1');
+
+2.
+var fs = require('fs')
+console.log(fs.readFileSync('text1.txt','utf-8'));
+
+3.
+const fs = require('fs');
+fs.readdir('./', (err, files) => {
+    files.forEach(file => {
+    console.log(file);
+})});
+
+4.
+var fs = require('fs')
+var readMe=fs.readFileSync('text1.txt','utf-8');
+console.log(readMe);
+fs.writeFileSync("write1.txt",readMe);
+
+5.
+var fs = require('fs');
+fs.readFile('text1.txt','utf8',function(err,data){
+  if(err){
+    console.log("error occured while reading");
+  }
+  function countOccurences(string, word) {
+   console.log(word);
+   console.log(string.split(word).length-1);
+}
+var count=countOccurences(data,"are");
+});
+
+6.
+var moment =require('moment');
+var adder =function (a,b) {
+  return `the sum of ${a} & ${b} is: ${a+b}`;
+}
+var mul =function (a,b) {
+  return `The multiplication of ${a} & ${b} is: ${a*b}`;
+}
+var CurrentDate = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
+module.exports.adder=adder;
+module.exports.mul=mul;
+module.exports.CurrentDate=CurrentDate;
+
+var calculator =require('./calculator.js');
+var sum=require('./operations/sum.js');
+var multiplication=require('./operations/multiplication.js');
+var substraction=require('./operations/substraction.js');
+var division=require('./operations/division.js');
+console.log(calculator.adder(3,7));
+console.log(calculator.mul(3,7));
+console.log(sum.sum(3,7));
+console.log(multiplication.multi(3,7));
+console.log(substraction.subst(3,7));
+console.log(division.divi(3,7));
+console.log('Today is:'+calculator.CurrentDate);
+7.
+var strftime = require('strftime')
+console.log(strftime('%H'));
+
+8.
+var fs = require('fs')
+fs.readFile('numbers.txt','utf-8',function(err,data){
+  if (err) throw err;
+    var numArray= data.split(',')
+    console.log(numArray);
+    var sum=0;
+  for(i in numArray)
+{
+    sum=sum+parseInt(numArray[i]);
+}
+console.log(sum);
+});
+
+9.
+var fs = require('fs')
+var txtFile = fs.readFileSync('text2.txt','utf-8');
+console.log(txtFile.split(' '));
+
+10.
+var fs = require('fs');
+var data = "hey ho! lets go";
+fs.writeFile('mywrite.txt',data,()=>{});
+fs.writeFile('mySuperText.txt',text,()=>{});
+console.log(text);
+console.log('The file was saved!');
+
+11.
+var fs = require('fs')
+console.log(fs.readFileSync('text2.txt','utf-8'));
+
+12.
+var strftime = require('strftime') 
+console.log(strftime('%B %d, %Y %H:%M:%S'));
+
+13.
+var myArgs = process.argv.slice(2);
+console.log('jerry hello, ', myArgs);
+console.log('arnav hello, ', myArgs);

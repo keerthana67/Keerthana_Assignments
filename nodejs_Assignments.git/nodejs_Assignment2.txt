@@ -1,0 +1,121 @@
+1.
+var express=require('express')
+var app= express();
+app.get('/',function(req,res){
+  res.send("Hello World");
+})
+app.listen(3000);
+
+2.
+var express=require('express')
+var strftime=require('strftime')
+var app= express();
+app.get('/year',function(req,res){
+    let age = req.query.age;
+    let years = strftime('%Y')-parseInt(age)
+    let msg = `You were born in ${years}`;
+    res.send(msg);
+});
+app.listen(3000);
+
+3.
+var express = require('express')
+var app = express()
+app.get('/home', function(req, res) {
+  res.send('Hello World!')
+});
+app.listen(3000);
+
+4.
+var express = require('express')
+var app = express()
+app.get('/', function(req, res) {
+  res.send('Hello World!')
+});
+app.get('/timeurl',function(req,res)
+{
+    var dateTime = new Date();
+    res.send(dateTime);
+});
+app.get('/port',function(req,res)
+{
+    if(req.query.num == null)
+    res.send('port 8080');
+    else
+    res.send('U R using prt number'+req.query.num);
+
+});
+
+5.
+6.
+CONNECT.JS:
+var express=require('express');
+var app=express();
+app.use(express.static('public'));
+app.use('/public',express.static('public'));
+
+app.get('/index',(req,res) => {
+    res.sendFile('./public/index.html',{roor:__dirname});
+});
+
+app.get('/one',(req,res) => {
+    res.sendFile('./public/one.html',{roor:__dirname});
+});
+
+app.get('/download',(req,res) => {
+    res.sendFile('./public/download.jpg',{roor:__dirname});
+});
+app.listen(3000);
+
+PUBLIC DIR
+INDEX.HTML:
+<!DOCTYPE html>
+<html>
+<head>
+<title>Express JS</title>
+<link rel="stylesheet" href="./one.css">
+</head>
+<body>
+<h1>An Image of Quote</h1>
+<figure>
+<img src="/download.jpg" alt="Life quote"> <figcaption>Image of a Quote</figcaption>
+</figure>
+</body>
+</html>
+
+ONE.CSS:
+body{
+    background-color: rgb(36, 132, 170);
+}
+h1{
+    text-align: center;
+    font-size:xx-large;
+} 
+img{
+    width: 50%;  
+    transform:translateX(300px);
+} 
+figcaption{
+    color:rgb(173, 25, 25);
+    font-size:x-large;
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    text-align:center;
+    padding-top:20px;
+    text-decoration:underline;
+}
+
+
+9.
+const express = require('express');
+const router = express.Router();
+const app = express();
+
+router.get('/api', (req, res) => {
+    res.json({ message: 'Hello World' });
+});
+
+app.use('/', router);
+app.listen(3000);
+app.listen(3000);
